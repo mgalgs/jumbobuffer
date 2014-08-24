@@ -42,13 +42,17 @@
 ;;; Code:
 
 
-(defvar jumbobuffer--prompt)
-(defvar jumbobuffer--ret)
+(defvar jumbobuffer--prompt nil)
+(defvar jumbobuffer--ret nil)
+(defvar jumbobuffer--initial nil)
 
 (define-derived-mode jumbobuffer-mode text-mode "jumbobuffer-mode"
   "Mode for editing the jumbobuffer"
-  (setq header-line-format prompt)
-  (force-mode-line-update))
+  (setq header-line-format (format "%s -- [C-c C-c to finish]" prompt))
+  (force-mode-line-update)
+  (erase-buffer)
+  (when jumbobuffer--initial
+    (insert jumbobuffer--initial)))
 
 (define-key jumbobuffer-mode-map
   (kbd "C-c C-c") 'jumbobuffer--finish)
@@ -56,7 +60,6 @@
 (defun jumbobuffer--finish ()
   (interactive)
   (setq jumbobuffer--ret (buffer-substring-no-properties 1 (point-max)))
-  (erase-buffer)
   (bury-buffer)
   (delete-window)
   (throw 'exit nil))
@@ -65,6 +68,7 @@
   (select-window (split-window-vertically -6))
   (switch-to-buffer (get-buffer-create "*jumbobuffer*"))
   (setq jumbobuffer--prompt prompt)
+  (setq jumbobuffer--initial initial-contents)
   (jumbobuffer-mode)
   (recursive-edit)
   jumbobuffer--ret)
