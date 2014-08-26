@@ -35,9 +35,10 @@
 
 ;; The main function provided by this package is
 ;; `read-from-jumbobuffer'. It has the same call signature as
-;; `read-from-minibuffer' but ignores all arguments besides PROMPT.
+;; `read-from-minibuffer' but ignores all arguments besides `PROMPT' and
+;; `INITIAL-CONTENTS'.
 ;;
-;; To finish input, type `C-c C-c'.
+;; To finish input, type `C-c C-c`.
 
 ;;; Code:
 
@@ -64,7 +65,9 @@
   (delete-window)
   (throw 'exit nil))
 
-(defun read-from-jumbobuffer (prompt &optional initial-contents keymap read hist default-value inherit-input-method)
+(defun read-from-jumbobuffer (prompt &optional initial-contents keymap
+                                     read hist default-value
+                                     inherit-input-method)
   "Like `read-from-minibuffer', but with multi-line input"
   (select-window (split-window-vertically -6))
   (switch-to-buffer (get-buffer-create "*jumbobuffer*"))

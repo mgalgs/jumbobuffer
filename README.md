@@ -19,15 +19,15 @@ Put this file on your load-path and do:
 
 The main function provided by this package is
 `read-from-jumbobuffer`. It has the same call signature as
-`read-from-minibuffer` but ignores all arguments besides PROMPT.
+`read-from-minibuffer` but ignores all arguments besides `PROMPT` and
+`INITIAL-CONTENTS`.
 
-To finish input, type `C-c C-c'.
+To finish input, type `C-c C-c`.
 
 ### Function Documentation
 
 
 #### `(read-from-jumbobuffer PROMPT &optional INITIAL-CONTENTS KEYMAP READHIST DEFAULT-VALUE INHERIT-INPUT-METHOD)`
-
 
 Like `read-from-minibuffer`, but with multi-line input
 
