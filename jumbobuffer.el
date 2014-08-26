@@ -65,6 +65,7 @@
   (throw 'exit nil))
 
 (defun read-from-jumbobuffer (prompt &optional initial-contents keymap read hist default-value inherit-input-method)
+  "Like `read-from-minibuffer', but with multi-line input"
   (select-window (split-window-vertically -6))
   (switch-to-buffer (get-buffer-create "*jumbobuffer*"))
   (setq jumbobuffer--prompt prompt)
