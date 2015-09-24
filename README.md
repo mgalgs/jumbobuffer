@@ -2,6 +2,7 @@
 *jumbo-size minibuffer*
 
 ---
+[![License GPLv3](https://img.shields.io/badge/license-GPL_v3-green.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
 
 jumbobuffer provides a function (`read-from-jumbobuffer`) for reading
 multi-line input from a temporary buffer at the bottom of the current
