@@ -65,6 +65,7 @@
   (delete-window)
   (throw 'exit nil))
 
+;;;###autoload
 (defun read-from-jumbobuffer (prompt &optional initial-contents keymap
                                      read hist default-value
                                      inherit-input-method)
