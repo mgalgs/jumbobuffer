@@ -1,3 +1,4 @@
+<img src="https://www.gnu.org/software/emacs/images/emacs.png" alt="Emacs Logo" width="80" height="80" align="right">
 ## jumbobuffer.el
 *jumbo-size minibuffer*
 
@@ -25,8 +26,9 @@ The main function provided by this package is
 
 To finish input, type `C-c C-c`.
 
-### Function Documentation
 
+
+### Function and Macro Documentation
 
 #### `(read-from-jumbobuffer PROMPT &optional INITIAL-CONTENTS KEYMAP READHIST DEFAULT-VALUE INHERIT-INPUT-METHOD)`
 
